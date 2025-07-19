@@ -65,3 +65,8 @@ function closePrivacyPopup() {
   popup.classList.remove('show');
   overlay.classList.remove('show');
 }
+
+document.querySelector("form").addEventListener("submit", function () {
+  const captcha = document.querySelector("textarea[name='g-recaptcha-response']");
+  if (captcha) captcha.remove();
+});
