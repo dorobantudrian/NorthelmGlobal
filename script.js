@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.card');
-  cards.forEach((card, index) => {
-    card.style.animationDelay = `${index * 0.15}s`;
+  document.querySelectorAll('.privacy-trigger').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPrivacyPopup();
+    });
   });
 });
 
@@ -47,11 +49,19 @@ function handleSubmit(event) {
 }
 
 function openPrivacyPopup() {
-  document.getElementById('privacy-popup').style.display = 'block';
-  document.getElementById('popup-overlay').style.display = 'block';
+  const popup = document.getElementById('privacy-popup');
+  const overlay = document.getElementById('popup-overlay');
+
+  if (!popup.classList.contains('show')) {
+    popup.classList.add('show');
+    overlay.classList.add('show');
+  }
 }
 
 function closePrivacyPopup() {
-  document.getElementById('privacy-popup').style.display = 'none';
-  document.getElementById('popup-overlay').style.display = 'none';
+  const popup = document.getElementById('privacy-popup');
+  const overlay = document.getElementById('popup-overlay');
+
+  popup.classList.remove('show');
+  overlay.classList.remove('show');
 }
