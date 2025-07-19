@@ -73,26 +73,37 @@
     </div>
   </section>
 
-  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <div class="form-wrapper" id="contact-form-wrapper">
-      <form id="contact-form" action="https://formsubmit.co/ajax/contact@northelmglobal.com" method="POST" onsubmit="return handleSubmit(event);">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <input type="text" name="company" placeholder="Company (optional)">
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <div class="g-recaptcha" data-sitekey="6LdiTIgrAAAAAAyqbMHMbaao2FBa7Bjn5n6-JIHV"></div>
-        <input type="hidden" name="_subject" value="New contact from NorthelmGlobal.com">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-    <div id="thank-you-message">
-      <h3>Thank you for your message!</h3>
-      <p>We appreciate you reaching out. One of our team members will get back to you shortly.</p>
-    </div>
-  </section>
+<section class="section" id="contact">
+  <h2>Contact Us</h2>
+  <div class="form-wrapper" id="contact-form-wrapper">
+    <form id="contact-form"
+          action="https://formsubmit.co/ajax/contact@northelmglobal.com"
+          method="POST"
+          onsubmit="return handleSubmit(event);"
+          data-formsubmit-ignore-fields="g-recaptcha-response">
+
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="company" placeholder="Company (optional)">
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+      <!-- ReCAPTCHA -->
+      <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+
+      <!-- FormSubmit config -->
+      <input type="hidden" name="_subject" value="New contact from NorthelmGlobal.com">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <div id="thank-you-message">
+    <h3>Thank you for your message!</h3>
+    <p>One of our team members will get back to you shortly.</p>
+  </div>
+</section>
 
   <footer>
     &copy; 2025 Northelm Global. All rights reserved.
