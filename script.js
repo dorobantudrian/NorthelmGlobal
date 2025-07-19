@@ -69,20 +69,26 @@ function closePrivacyPopup() {
 function handleSubmit(event) {
   event.preventDefault();
 
+
   if (!validateCaptcha()) return false;
 
-  setTimeout(() => {
-    const captchaField = document.querySelector("textarea[name='g-recaptcha-response']");
-    if (captchaField) captchaField.remove();
 
-    const form = document.getElementById('contact-form');
-    const formData = new FormData(form);
+  const form = document.getElementById('contact-form');
+  const formData = new FormData(form);
 
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    })
+
+  const filteredData = new FormData();
+  for (let [key, value] of formData.entries()) {
+    if (key !== "g-recaptcha-response") {
+      filteredData.append(key, value);
+    }
+  }
+
+  fetch(form.action, {
+    method: 'POST',
+    body: filteredData,
+    headers: { 'Accept': 'application/json' }
+  })
     .then(response => {
       if (response.ok) {
         document.getElementById('contact-form-wrapper').style.display = 'none';
@@ -94,8 +100,6 @@ function handleSubmit(event) {
     .catch(() => {
       alert('There was a network error.');
     });
-
-  }, 150);
 
   return false;
 }
