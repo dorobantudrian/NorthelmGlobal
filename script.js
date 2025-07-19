@@ -66,7 +66,36 @@ function closePrivacyPopup() {
   overlay.classList.remove('show');
 }
 
-document.querySelector("form").addEventListener("submit", function () {
-  const captcha = document.querySelector("textarea[name='g-recaptcha-response']");
-  if (captcha) captcha.remove();
-});
+function handleSubmit(event) {
+  event.preventDefault();
+
+  if (!validateCaptcha()) return false;
+
+  setTimeout(() => {
+    const captchaField = document.querySelector("textarea[name='g-recaptcha-response']");
+    if (captchaField) captchaField.remove();
+
+    const form = document.getElementById('contact-form');
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      if (response.ok) {
+        document.getElementById('contact-form-wrapper').style.display = 'none';
+        document.getElementById('thank-you-message').style.display = 'block';
+      } else {
+        alert('There was a problem submitting the form.');
+      }
+    })
+    .catch(() => {
+      alert('There was a network error.');
+    });
+
+  }, 150);
+
+  return false;
+}
