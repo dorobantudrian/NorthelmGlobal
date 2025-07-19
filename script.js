@@ -21,33 +21,6 @@ function validateCaptcha() {
   return true;
 }
 
-function handleSubmit(event) {
-  event.preventDefault();
-  if (!validateCaptcha()) return false;
-
-  const form = document.getElementById('contact-form');
-  const formData = new FormData(form);
-
-  fetch(form.action, {
-    method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(response => {
-    if (response.ok) {
-      document.getElementById('contact-form-wrapper').style.display = 'none';
-      document.getElementById('thank-you-message').style.display = 'block';
-    } else {
-      alert('There was a problem submitting the form.');
-    }
-  })
-  .catch(() => {
-    alert('There was a network error.');
-  });
-
-  return false;
-}
-
 function openPrivacyPopup() {
   const popup = document.getElementById('privacy-popup');
   const overlay = document.getElementById('popup-overlay');
