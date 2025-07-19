@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://www.northelmglobal.com/" />
+  <meta property="og:title" content="Northelm Global – Strategic Wholesale Supply" />
+  <meta property="og:description" content="We empower cross-border commerce through operational clarity and trusted sourcing." />
+  <meta property="og:url" content="https://www.northelmglobal.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.northelmglobal.com/og-preview.jpg" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Northelm Global – Strategic Wholesale & Supply Solutions">
+  <title>Northelm Global</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #f1f7fa, #ffffff);
+      color: #1a2c38;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #27445C;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img { height: 105px; max-width: 100%; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    nav a {
+      color: #e4f1f7;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover { color: #ffffff; }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1.5rem;
+      background: linear-gradient(to right, #3b5d76, #2a4358);
+      color: #ffffff;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 90%;
+      opacity: 0.9;
+    }
+    .motto {
+      margin-top: 1.5rem;
+      font-style: italic;
+      font-weight: 600;
+      opacity: 0.85;
+    }
+    .section {
+      padding: 3rem 1.5rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #1e3548;
+      text-align: center;
+    }
+    .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+    .card {
+  min-height: 100%;
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+      animation: fadeInUpCard 0.8s ease forwards;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+    .card:hover {
+      transform: scale(1.03) translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    @keyframes fadeInUpCard {
+      0% { opacity: 0; transform: scale(0.95) translateY(20px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .contact-cta {
+      text-align: center;
+      margin: 2rem auto 3rem;
+    }
+    .contact-cta a {
+      background-color: #27445C;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .contact-cta a:hover { background-color: #1e3548; }
+    .form-wrapper {
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+      margin: auto;
+    }
+    .form-wrapper form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .form-wrapper input, .form-wrapper textarea {
+      padding: 0.8rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .form-wrapper button {
+      background-color: #27445C;
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .form-wrapper button:hover { background-color: #1e3548; }
+    .footer {
+      background-color: #1e3548;
+      color: #ffffff;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      nav { justify-content: center; text-align: center; gap: 0.8rem; margin-top: 1rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .section h2 { font-size: 1.6rem; }
+      .form-wrapper { padding: 1.5rem; }
+    }
+  .form-button {
+  background-color: #27445C;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  font-size: 1rem;
+}
+.form-button:hover {
+  background-color: #1e3548;
+}
+</style>
+</head>
+<body>
+<header>
+  <img src="https://img1.wsimg.com/isteam/ip/39b6a2fa-1a67-40de-8601-d8cf78bd7182/WhiteColour-8f06235.png/:/rs=h:175,m" alt="Northelm Global Logo" />
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Solutions</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+<section class="hero">
+  <h1>Northelm Global</h1>
+  <p>Wholesale sourcing & multi-channel enablement – built on insight, strategy and reach.</p>
+  <div class="motto">Excellence isn’t a goal. It’s the baseline.</div>
+  <div class="contact-cta">
+    <a href="#contact">Get in Touch</a>
+  </div>
+</section>
+<section class="section" id="about">
+  <h2>About Us</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Who We Are</h3>
+      <p>Northelm Global is a privately held European operations company, focused on driving supply performance through precision, structure, and trust. We work with forward-thinking businesses to optimize sourcing and streamline flows.</p>
+    </div>
+    <div class="card">
+      <h3>How We Operate</h3>
+      <p>We are committed to clarity and execution. Our process includes supplier vetting, regulatory alignment, documentation, and last-mile planning — all designed for compliance-heavy markets.</p>
+    </div>
+    <div class="card">
+      <h3>Why Partners Choose Us</h3>
+      <p>With an agile mindset and data-driven execution, we support our partners from onboarding to fulfillment — ensuring speed, reliability, and strategic growth in complex environments.</p>
+    </div>
+  </div>
+</section>
+<section class="section" id="services">
+  <h2>Our Solutions</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Smart Procurement</h3>
+      <p>We identify reliable suppliers and match them with operational needs — ensuring alignment with market trends, risk mitigation, and quality benchmarks.</p>
+    </div>
+    <div class="card">
+      <h3>Multi-Channel Integration</h3>
+      <p>We bridge physical and digital infrastructures through customized logistics pipelines, enabling fulfillment flexibility across regions and business models.</p>
+    </div>
+    <div class="card">
+      <h3>Operational Partnerships</h3>
+      <p>Built on transparency and accountability, our relationships with suppliers and stakeholders enable collaborative growth with shared KPIs.</p>
+    </div>
+    <div class="card">
+      <h3>Growth Strategy & Advisory</h3>
+      <p>We offer tailored consulting to scale operations, optimize sourcing and penetrate new regions without compromising cost or compliance.</p>
+    </div>
+    <div class="card">
+  <h3>Compliance-Ready Execution</h3>
+  <p>We ensure that all compliance aspects — from regulatory documents to labeling — are addressed efficiently, enabling faster deployment without bottlenecks.</p>
+</div>
+    <div class="card">
+      <h3>Inventory Visibility</h3>
+      <p>We implement processes that ensure product movement is visible and measurable throughout the chain — reducing lead time and improving predictability.</p>
+    </div>
+  </div>
+</section>
+<section class="section" id="contact">
+  <h2>Contact Us</h2>
+  <div class="form-wrapper" id="contact-form-wrapper">
+  <form id="contact-form" action="https://formsubmit.co/contact@northelmglobal.com" method="POST" onsubmit="return handleSubmit(event);">
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <input type="text" name="company" placeholder="Company (optional)">
+  <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+  <div style="display: flex; align-items: center; gap: 0.5rem;">
+    <input type="checkbox" id="captcha-check" required style="transform: scale(1.2);">
+    <label for="captcha-check" style="font-size: 0.9rem;">Please confirm you're human</label>
+  </div>
+  <input type="hidden" name="_subject" value="New contact from NorthelmGlobal.com">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <button type="submit" class="form-button">Send Message</button>
+</form>
+</div>
+<div id="thank-you-message" style="display: none; text-align: center; padding: 2rem; max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);">
+  <h3 style="color: #1e3548; margin-bottom: 1rem;">Thank you for your message!</h3>
+  <p>We appreciate you reaching out. One of our team members will get back to you shortly.</p>
+</div>
+      <input type="hidden" name="_subject" value="New contact from NorthelmGlobal.com">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      
+    </form>
+  </div>
+</section>
+<div id="success-popup" class="card" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #ffffff; border-radius: 12px; padding: 1rem 1.5rem; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08); z-index: 10000; text-align: center;">
+  <p style="margin: 0; font-weight: 600; color: #1e3548; font-size: 1.1rem;">Message Sent</p>
+</div>
+<footer class="footer">
+  &copy; 2025 Northelm Global SRL. All rights reserved.
+</footer>
+<div id="cookie-notice" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1e3548; color: #fff; padding: 1rem; text-align: center; z-index: 9999; font-size: 0.9rem;">
+  This site uses a contact form that may collect limited personal data. By continuing, you agree to our <a href="#" onclick="openPrivacyPopup()" style="color:#f0f0f0; text-decoration: underline;">Privacy Policy</a>.
+  <button onclick="document.getElementById('cookie-notice').style.display='none'" style="margin-left: 1rem; padding: 0.5rem 1rem; background: #27445C; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Got it</button>
+</div>
+
+<script>
+function validateCaptcha() {
+  const checkbox = document.getElementById('captcha-check');
+  return checkbox && checkbox.checked;
+}
+
+function handleSubmit(event) {
+  if (!validateCaptcha()) return false;
+  event.preventDefault();
+  document.getElementById('contact-form-wrapper').style.display = 'none';
+  document.getElementById('thank-you-message').style.display = 'block';
+  return false;
+}
+function closeSuccessPopup() {
+  document.getElementById('success-popup').style.display = 'none';
+  document.getElementById('popup-overlay').style.display = 'none';
+}
+</script>
+<div id="privacy-popup" class="card" style="display: none; position: fixed; inset: 0; margin: auto; width: 90%; max-width: 800px; max-height: 90vh; overflow-y: auto; background: #ffffff; border-radius: 16px; padding: 2rem; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08); z-index: 10000;">
+  <h1 style="margin-top: 0; color: #1e3548;">Privacy Policy</h1>
+  <p>This Privacy Policy describes how Northelm Global SRL collects, uses, and protects your information when you use our website.</p>
+  <h2>1. Information We Collect</h2>
+  <p>We only collect information that you voluntarily provide to us through the contact form, such as your name, email address, company (optional), and message content.</p>
+  <h2>2. How We Use Your Information</h2>
+  <p>The information you provide is used solely to respond to your inquiries or business communication requests. We do not share, sell, or lease your data to third parties.</p>
+  <h2>3. Data Retention</h2>
+  <p>Messages submitted through our contact form may be stored securely for a limited time in our email inbox or CRM system, if applicable, to ensure timely follow-up.</p>
+  <h2>4. Your Rights</h2>
+  <p>You have the right to access, correct, or request deletion of your data. To do so, please email us at <strong>privacy@northelmglobal.com</strong>.</p>
+  <h2>5. Cookies</h2>
+  <p>Our website does not use cookies or trackers for analytics or marketing purposes at this time.</p>
+  <h2>6. Security</h2>
+  <p>We implement appropriate technical and organizational measures to protect your data from unauthorized access, disclosure, or misuse.</p>
+  <h2>7. Updates</h2>
+  <p>This policy may be updated from time to time. Any significant changes will be reflected on this page.</p>
+  <p>Last updated: July 2025</p>
+  <div style="text-align: right; margin-top: 2rem;">
+    <button onclick="closePrivacyPopup()" style="padding: 0.6rem 1.2rem; background: #27445C; color: white; border: none; border-radius: 6px; cursor: pointer;">Close</button>
+  </div>
+</div>
+<script>
+function openPrivacyPopup() {
+  document.getElementById('privacy-popup').style.display = 'block';
+}
+</script>
+<div id="popup-overlay" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 9998;"></div>
+<script>
+function openPrivacyPopup() {
+  document.getElementById('privacy-popup').style.display = 'block';
+  document.getElementById('popup-overlay').style.display = 'block';
+}
+function closePrivacyPopup() {
+  document.getElementById('privacy-popup').style.display = 'none';
+  document.getElementById('popup-overlay').style.display = 'none';
+}
+</script>
+</body>
+</html>
