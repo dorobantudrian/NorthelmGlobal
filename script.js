@@ -42,25 +42,27 @@ function closePrivacyPopup() {
 function handleSubmit(event) {
   event.preventDefault();
 
-
   if (!validateCaptcha()) return false;
 
-
   const form = document.getElementById('contact-form');
-  const formData = new FormData(form);
+  const formElements = form.elements;
 
+  const params = new URLSearchParams();
 
-  const filteredData = new FormData();
-  for (let [key, value] of formData.entries()) {
-    if (key !== "g-recaptcha-response") {
-      filteredData.append(key, value);
+  for (let i = 0; i < formElements.length; i++) {
+    const el = formElements[i];
+    if (el.name && el.name !== "g-recaptcha-response") {
+      params.append(el.name, el.value);
     }
   }
 
   fetch(form.action, {
     method: 'POST',
-    body: filteredData,
-    headers: { 'Accept': 'application/json' }
+    body: params,
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
   })
     .then(response => {
       if (response.ok) {
@@ -73,6 +75,9 @@ function handleSubmit(event) {
     .catch(() => {
       alert('There was a network error.');
     });
+
+  return false;
+}
 
   return false;
 }
