@@ -264,10 +264,7 @@
   <input type="email" name="email" placeholder="Email Address" required>
   <input type="text" name="company" placeholder="Company (optional)">
   <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-  <div style="display: flex; align-items: center; gap: 0.5rem;">
-    <input type="checkbox" id="captcha-check" required style="transform: scale(1.2);">
-    <label for="captcha-check" style="font-size: 0.9rem;">Please confirm you're human</label>
-  </div>
+  <div class="g-recaptcha" data-sitekey="6LdiTIgrAAAAAAyqbMHMbaao2FBa7Bjn5n6-JIHV"></div>
   <input type="hidden" name="_subject" value="New contact from NorthelmGlobal.com">
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
@@ -298,8 +295,12 @@
 
 <script>
 function validateCaptcha() {
-  const checkbox = document.getElementById('captcha-check');
-  return checkbox && checkbox.checked;
+  var response = grecaptcha.getResponse();
+  if (response.length === 0) {
+    alert("Please verify that you're not a robot.");
+    return false;
+  }
+  return true;
 }
 
 function handleSubmit(event) {
