@@ -260,6 +260,7 @@
   <h2>Contact Us</h2>
   <div class="form-wrapper" id="contact-form-wrapper">
   <form id="contact-form" action="https://formsubmit.co/contact@northelmglobal.com" method="POST" onsubmit="return handleSubmit(event);">
+  <input type="hidden" name="_next" value="https://northelmglobal.com/#thank-you-message">
   <input type="text" name="name" placeholder="Full Name" required>
   <input type="email" name="email" placeholder="Email Address" required>
   <input type="text" name="company" placeholder="Company (optional)">
@@ -305,10 +306,13 @@ function validateCaptcha() {
 
 function handleSubmit(event) {
   if (!validateCaptcha()) return false;
-  event.preventDefault();
+
+  // Show thank-you message, hide form
   document.getElementById('contact-form-wrapper').style.display = 'none';
   document.getElementById('thank-you-message').style.display = 'block';
-  return false;
+
+  // Allow real submission to FormSubmit
+  return true;
 }
 function closeSuccessPopup() {
   document.getElementById('success-popup').style.display = 'none';
