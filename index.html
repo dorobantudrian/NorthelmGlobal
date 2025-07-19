@@ -8,7 +8,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.northelmglobal.com/">
   <link rel="icon" href="assets/img/logo.png">
-  <meta property="og:image" content="assets/img/logo2.png">
+  <meta property="og:image" content="assets/img/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Northelm Global – Strategic Sourcing & Delivery Enablement</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,25 +76,17 @@
   <section class="section" id="contact">
     <h2>Contact Us</h2>
     <div class="form-wrapper" id="contact-form-wrapper">
-<form id="contact-form"
-  action="https://formsubmit.co/ajax/contact@northelmglobal.com"
-  method="POST"
-  onsubmit="return handleSubmit(event);"
-  data-formsubmit-ignore-fields="g-recaptcha-response">
-
-  <input type="text" name="name" placeholder="Full Name" required>
-  <input type="email" name="email" placeholder="Email Address" required>
-  <input type="text" name="company" placeholder="Company (optional)">
-  <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-  <div class="g-recaptcha" data-sitekey="6LdiTIgrAAAAAAyqbMHMbaao2FBa7Bjn5n6-JIHV"></div>
-
-  <input type="hidden" name="_subject" value="New message from NorthelmGlobal.com contact form">
-  <input type="hidden" name="_template" value="box">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_replyto" value="">
-
-  <button type="submit">Send Message</button>
-</form>
+      <form id="contact-form" action="https://formsubmit.co/ajax/contact@northelmglobal.com" method="POST" onsubmit="return handleSubmit(event);">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="company" placeholder="Company (optional)">
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <div class="g-recaptcha" data-sitekey="6LdiTIgrAAAAAAyqbMHMbaao2FBa7Bjn5n6-JIHV"></div>
+        <input type="hidden" name="_subject" value="New contact from NorthelmGlobal.com">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <button type="submit">Send Message</button>
+      </form>
     </div>
     <div id="thank-you-message">
       <h3>Thank you for your message!</h3>
@@ -108,11 +100,11 @@
 
 <div id="cookie-notice">
   This site uses a contact form that may collect limited personal data. By continuing, you agree to our
-  <a href="#" onclick="openPrivacyPopup()">Privacy Policy</a>.
+	<a href="#" class="privacy-trigger">Privacy Policy</a>
   <button onclick="document.getElementById('cookie-notice').style.display='none'">Got it</button>
 </div>
 
-  <div id="privacy-popup" class="card" style="display: none; position: fixed; inset: 0; margin: auto; width: 90%; max-width: 800px; max-height: 90vh; overflow-y: auto; background: #ffffff; border-radius: 16px; padding: 2rem; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08); z-index: 10000;">
+<div id="privacy-popup" class="card">
     <h1 style="margin-top: 0; color: #1e3548;">Privacy Policy</h1>
     <p>This Privacy Policy describes how Northelm Global collects, uses, and protects your information when you use our website.</p>
     <h2>1. Information We Collect</h2>
@@ -135,7 +127,7 @@
     </div>
   </div>
  
-  <div id="popup-overlay"></div>
+	<div id="popup-overlay"></div>
   <script src="script.js"></script>
 </body>
 </html>
