@@ -1,10 +1,18 @@
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Activare Privacy Popup
   document.querySelectorAll('.privacy-trigger').forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
       openPrivacyPopup();
     });
   });
+
+  // Activare formular contact
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', handleSubmit);
+  }
 });
 
 function toggleMenu() {
@@ -23,15 +31,27 @@ function validateCaptcha() {
 
 function handleSubmit(event) {
   event.preventDefault();
+
   if (!validateCaptcha()) return false;
 
   const form = document.getElementById('contact-form');
-  const formData = new FormData(form);
+  const formElements = form.elements;
+
+  const params = new URLSearchParams();
+  for (let i = 0; i < formElements.length; i++) {
+    const el = formElements[i];
+    if (el.name && el.name !== "g-recaptcha-response") {
+      params.append(el.name, el.value);
+    }
+  }
 
   fetch(form.action, {
     method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
+    body: params,
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
   })
   .then(response => {
     if (response.ok) {
@@ -52,10 +72,8 @@ function openPrivacyPopup() {
   const popup = document.getElementById('privacy-popup');
   const overlay = document.getElementById('popup-overlay');
 
-  if (!popup.classList.contains('show')) {
-    popup.classList.add('show');
-    overlay.classList.add('show');
-  }
+  popup.classList.add('show');
+  overlay.classList.add('show');
 }
 
 function closePrivacyPopup() {
