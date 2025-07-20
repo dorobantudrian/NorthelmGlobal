@@ -29,13 +29,24 @@ function validateCaptcha() {
   return true;
 }
 
+let hasSubmitted = false;
+
 function handleSubmit(event) {
   event.preventDefault();
 
+  if (hasSubmitted) return false;
   if (!validateCaptcha()) return false;
+
+  hasSubmitted = true;
 
   const form = document.getElementById('contact-form');
   const formElements = form.elements;
+  const submitButton = form.querySelector('button[type="submit"]');
+
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+  }
 
   const params = new URLSearchParams();
   for (let i = 0; i < formElements.length; i++) {
@@ -59,10 +70,20 @@ function handleSubmit(event) {
       document.getElementById('thank-you-message').style.display = 'block';
     } else {
       alert('There was a problem submitting the form.');
+      hasSubmitted = false;
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Message";
+      }
     }
   })
   .catch(() => {
     alert('There was a network error.');
+    hasSubmitted = false;
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = "Send Message";
+    }
   });
 
   return false;
