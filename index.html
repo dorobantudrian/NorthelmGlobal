@@ -77,10 +77,9 @@
   <h2>Contact Us</h2>
   <div class="form-wrapper" id="contact-form-wrapper">
     <form id="contact-form"
-          action="https://formsubmit.co/ajax/contact@northelmglobal.com"
+          action="https://formspree.io/f/xzzadpld"
           method="POST"
-          onsubmit="return handleSubmit(event);"
-          data-formsubmit-ignore-fields="g-recaptcha-response">
+          onsubmit="return handleSubmit(event);">
 
       <input type="text" name="name" placeholder="Full Name" required>
       <input type="email" name="email" placeholder="Email Address" required>
@@ -90,10 +89,6 @@
       <!-- ReCAPTCHA -->
       <div class="g-recaptcha" data-sitekey="6LdiTIgrAAAAAAyqbMHMbaao2FBa7Bjn5n6-JIHV"></div>
 
-      <!-- FormSubmit config -->
-      <input type="hidden" name="_subject" value="New contact from NorthelmGlobal.com">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
 
       <button type="submit">Send Message</button>
     </form>

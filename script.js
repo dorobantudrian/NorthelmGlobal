@@ -1,6 +1,5 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-  // Activare Privacy Popup
+
   document.querySelectorAll('.privacy-trigger').forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
@@ -8,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Activare formular contact
+
   const form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', handleSubmit);
@@ -40,7 +39,6 @@ function handleSubmit(event) {
   hasSubmitted = true;
 
   const form = document.getElementById('contact-form');
-  const formElements = form.elements;
   const submitButton = form.querySelector('button[type="submit"]');
 
   if (submitButton) {
@@ -48,26 +46,22 @@ function handleSubmit(event) {
     submitButton.textContent = "Sending...";
   }
 
-  const params = new URLSearchParams();
-  for (let i = 0; i < formElements.length; i++) {
-    const el = formElements[i];
-    if (el.name && el.name !== "g-recaptcha-response") {
-      params.append(el.name, el.value);
-    }
-  }
+const formData = new FormData(form);
+formData.append("g-recaptcha-response", grecaptcha.getResponse());
 
-  fetch(form.action, {
-    method: 'POST',
-    body: params,
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
-  })
+fetch(form.action, {
+  method: 'POST',
+  body: JSON.stringify(Object.fromEntries(formData)),
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }
+})
   .then(response => {
     if (response.ok) {
       document.getElementById('contact-form-wrapper').style.display = 'none';
       document.getElementById('thank-you-message').style.display = 'block';
+      grecaptcha.reset(); 
     } else {
       alert('There was a problem submitting the form.');
       hasSubmitted = false;
